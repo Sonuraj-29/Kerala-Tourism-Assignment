@@ -6,9 +6,11 @@
 }
 /* header.d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-md-between.py-3.mb-4.border-bottom { */
 
+
 .text{
     font-size: large;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: justify;
 }
 .py-3 {
     padding-top: 1rem!important;
