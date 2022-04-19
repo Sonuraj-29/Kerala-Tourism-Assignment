@@ -4,9 +4,41 @@
 .justify-content-md-between {
     justify-content: space-between!important;
 }
-/* header.d-flex.flex-wrap.align-items-center.justify-content-center.justify-content-md-between.py-3.mb-4.border-bottom { */
 
+#message{
+    display: none;
+    position: relative;
+    padding: 15px;
+    font-size: small;
+}
 
+#message p{
+    padding: 10px 35px;
+}
+
+.valid{
+    color: green;
+}
+
+.valid:before {
+    position: relative;
+    left: -35px;
+    content: "✓";
+}
+
+.invalid {
+    color: red;
+  }
+
+.invalid:before {
+    position: relative;
+    left: -35px;
+    content: "x";
+  }
+
+small{
+    color: red;
+}
 .text{
     font-size: large;
     font-family: Verdana, Geneva, Tahoma, sans-serif;

@@ -29,44 +29,45 @@
         <div class="col-md-2 text-end">
             <a href="login.html" type="button" class="btn btn-outline-primary">Login</a>
             <a href="signUp.html" type="button" class="btn btn-primary">Sign Up</a>
-          <!-- <button type="button" class="btn btn-outline-primary me-2">Login</button>
-          <button type="button" class="btn btn-primary">Sign-up</button> -->
         </div>
       </header>
     </div>
-    <!-- <br><br><br> -->
     <!-- Header end -->
-    <div style="padding: 9%; background-image: url(https://www.keralatourism.org/images/picture/panorama/download/Kumarakom_Backwaters_24.jpg);">
-    <div class="container col-3 py-3" style="color: white;">
+    <div style="margin-top: -1px;  background-image: url(https://www.keralatourism.org/images/picture/panorama/download/Kumarakom_Backwaters_24.jpg);">
 
+<div style="padding-top: 10px; margin-bottom: 50px;">
+  <form style="background-color: white;padding: 2%; color: black; border-radius: 10px;" action="./loginSuccess.html" onsubmit="return empty()" class="loginform">
     <h3>Login to your account</h3>
-<br>
-    <div class="mb-3">
-        <label for="formGroupExampleInput" class="form-label">Email address</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your email address">
-      </div>
-      <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label">Password</label>
-        <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Type your password">
-      </div>
-      <div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
-      </div>
-    </div>
+    <br>
+    <div style="color: black;" class="login-cont">
+      <label for="email">Email</label>
+      <br>
+      <input type="text" name="email" id="logemail" placeholder="Email address" required>
+      <label for="error" id="logerror"></label>
   </div>
+  <br>
+  <div style="color: black;" class="login-cont">
+      <label for="password">Password</label>
+      <br>
+      <input type="password" name="password" id="logpswd" placeholder="Password" required>
+  </div>
+  <br>
+  <div>
+      <button type="submit" class="login-btn">Log In</button>
+  </div>
+  </form>
+</div>
 
   <!-- footer start -->
-<div class="container">
+<div style="background-color: white;">
   <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <div class="col-md-4 d-flex align-items-center">
-      <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-        <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
-      </a>
       <span class="text-muted">© Copyright @ 2022</span>
     </div>
 
   </footer>
 </div>
 <!-- footer end -->
+<script src="./scripts/script.js"></script>
 </body>
 </html>
