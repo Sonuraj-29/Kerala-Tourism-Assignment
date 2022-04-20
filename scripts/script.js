@@ -1,25 +1,17 @@
-var logpswd = document.getElementById('logpswd');
-var myInput = document.getElementById("signPswd");
-var letter = document.getElementById("letter");
-var capital = document.getElementById("capital");
-var number = document.getElementById("number");
-var length = document.getElementById("length");
 
+function emailLog(){
+  var logemail = document.getElementById('logemail').value;
 
-function empty(){
-
-  var logemail = document.getElementById('logemail');
-  var logerror = document.getElementById('logerror');
-
-  if(emailerr.test(logemail.value)){
-    return true;
+  if(!logemail.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)){
+    logerror.innerHTML = 'Invalid email format';
+    logerror.style.color = 'Red';
+    return false;
   }
   else{
-    logerror.innerHTML = 'Invalid email format';
-    logemail.style.borderBlockColor = 'Red';
-    return false;
-    }
+    logerror.innerHTML = '';
+    return true;
   }
+}
 
 function emailCheck(){
 
@@ -62,6 +54,12 @@ function hide() {
   
   function pswdCheck() {
 
+    var myInput = document.getElementById("signPswd");
+    var letter = document.getElementById("letter");
+    var capital = document.getElementById("capital");
+    var number = document.getElementById("number");
+    var length = document.getElementById("length");
+
     // Validate lowercase letters
     var lowerCaseLetters = /[a-z]/g;
     if(myInput.value.match(lowerCaseLetters)) {
@@ -93,7 +91,7 @@ function hide() {
     }
   
     // Validate length
-    if(myInput.value.length >= 8) {
+    if(myInput.value.trim().length >= 8) {
       length.classList.remove("invalid");
       length.classList.add("valid");
     } else {
@@ -112,4 +110,42 @@ function valid(){
     return true;
   }
 }
+
+
+
+
+    let timeout;
+
+    let password = document.getElementById('signPswd')
+    let strengthBadge = document.getElementById('StrengthDisp')
+
+    let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
+    let mediumPassword = new RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
     
+    function StrengthChecker(PasswordParameter){
+
+        if(strongPassword.test(PasswordParameter)) {
+            strengthBadge.style.backgroundColor = "green"
+            strengthBadge.textContent = 'Strong'
+        } else if(mediumPassword.test(PasswordParameter)){
+            strengthBadge.style.backgroundColor = 'blue'
+            strengthBadge.textContent = 'Medium'
+        } else{
+            strengthBadge.style.backgroundColor = 'red'
+            strengthBadge.textContent = 'Weak'
+        }
+    }
+
+    password.addEventListener("input", () => {
+
+        strengthBadge.style.display= 'block'
+        clearTimeout(timeout);
+
+        timeout = setTimeout(() => StrengthChecker(password.value), 100);
+
+        if(password.value.length !== 0){
+            strengthBadge.style.display != 'block'
+        } else{
+            strengthBadge.style.display = 'none'
+        }
+    });

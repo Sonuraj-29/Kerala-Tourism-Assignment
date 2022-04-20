@@ -36,22 +36,24 @@
     <div style="margin-top: -1px;  background-image: url(https://www.keralatourism.org/images/picture/panorama/download/Kumarakom_Backwaters_24.jpg);">
 
 <div style="padding-top: 10px; margin-bottom: 50px;">
-  <form style="background-color: white;padding: 2%; color: black; border-radius: 10px;" action="./loginSuccess.html" onsubmit="return empty()" class="loginform">
+  <form style="background-color: white;padding: 2%; color: black; border-radius: 10px;" action="./loginSuccess.html" onsubmit=" return emailLog()" class="loginform">
     <h3>Login to your account</h3>
     <br>
     <div style="color: black;" class="login-cont">
       <label for="email">Email</label>
       <br>
-      <input type="text" name="email" id="logemail" placeholder="Email address" required>
+      <input type="text" name="email" id="logemail" placeholder="Email address" onkeyup="emailLog()" required>
+      <br>
       <label for="error" id="logerror"></label>
   </div>
-  <br>
+
   <div style="color: black;" class="login-cont">
       <label for="password">Password</label>
       <br>
       <input type="password" name="password" id="logpswd" placeholder="Password" required>
+      <br>
   </div>
-  <br>
+
   <div>
       <button type="submit" class="login-btn">Log In</button>
   </div>
