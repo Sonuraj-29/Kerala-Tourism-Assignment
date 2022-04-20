@@ -2,14 +2,19 @@
 function emailLog(){
   var logemail = document.getElementById('logemail').value;
 
-  if(!logemail.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)){
+  if(logemail.trim().length!=0){
+    if(!logemail.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)){
     logerror.innerHTML = 'Invalid email format';
     logerror.style.color = 'Red';
     return false;
-  }
-  else{
+    }
+    else{
     logerror.innerHTML = '';
     return true;
+    }
+    }
+  else{
+    logerror.innerHTML = '';
   }
 }
 
@@ -18,30 +23,36 @@ function emailCheck(){
   var email = document.getElementById('signEmail').value;
   var emailHelpBlock = document.getElementById('emailHelpBlock');
 
-  if(!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)){
-    
-    emailHelpBlock.innerHTML = 'Invalid email format!';
-    emailHelpBlock.style.color = 'Red';
-    return false;
-  }
+  if(email.trim().length!=0){
+    if(!email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/)){
+      emailHelpBlock.innerHTML = 'Invalid email format!';
+      emailHelpBlock.style.color = 'Red';
+      return false;
+    }
+      emailHelpBlock.innerHTML = '';
+      return true;
+    }
     emailHelpBlock.innerHTML = '';
-    return true;
-}
+  }
+
 
 function mobCheck(){
 
   var mob = document.getElementById('mob').value;
   var mobError = document.getElementById('mobHelpBlock');
 
-  if(mob.match(/^(\d{3})[-. ]*(\d{3})[-. ]*(\d{4})$/)){
-    mobError.innerText = '';
-    return true;
-  }
-  else{
-    mobError.style.color = 'Red';
-    mobError.innerText = 'Invalid mobile number!';
-    return false;
+  if(mob.trim().length!=0){
+    if(mob.match(/^(\d{3})[-. ]*(\d{3})[-. ]*(\d{4})$/)){
+      mobError.innerText = '';
+      return true;
     }
+    else{
+      mobError.style.color = 'Red';
+      mobError.innerText = 'Invalid mobile number!';
+      return false;
+    }
+    }
+    mobError.innerText = '';
   }
 
 function show() {
@@ -141,7 +152,7 @@ function valid(){
         strengthBadge.style.display= 'block'
         clearTimeout(timeout);
 
-        timeout = setTimeout(() => StrengthChecker(password.value), 100);
+        timeout = setTimeout(() => StrengthChecker(password.value), 50);
 
         if(password.value.length !== 0){
             strengthBadge.style.display != 'block'
