@@ -152,7 +152,7 @@ function valid(){
         strengthBadge.style.display= 'block'
         clearTimeout(timeout);
 
-        timeout = setTimeout(() => StrengthChecker(password.value), 50);
+        timeout = setTimeout(() => StrengthChecker(password.value), 100);
 
         if(password.value.length !== 0){
             strengthBadge.style.display != 'block'
